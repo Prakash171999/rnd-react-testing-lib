@@ -40,4 +40,19 @@ describe("todo", () => {
     const divElement = screen.getAllByTestId("task-container");
     expect(divElement.length).toBe(3);
   });
+
+  it("Created task should not have completed className when initially rendered", () => {
+    render(<MockTodo />);
+    addTask(["Go Grocery Shopping"]);
+    const divElement = screen.getByText(/Go Grocery Shopping/i);
+    expect(divElement).not.toHaveClass("todo-item-active");
+  });
+
+  it("task should have completed className when clicked", () => {
+    render(<MockTodo />);
+    addTask(["Go Grocery Shopping"]);
+    const divElement = screen.getByText(/Go Grocery Shopping/i);
+    fireEvent.click(divElement);
+    expect(divElement).toHaveClass("todo-item-active");
+  });
 });
