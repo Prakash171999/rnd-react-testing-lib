@@ -18,4 +18,11 @@ describe("FollowersList", () => {
     const followerDivElement = await screen.queryByTestId("follower-item-0");
     expect(followerDivElement).not.toBeInTheDocument();
   });
+
+  it("should render multiple follower items", async () => {
+    render(<MockFollowersList />);
+    // const followerDivElement = await screen.getByTestId("follower-item-0 ");  //await doesn't work with getByTestId
+    const followerDivElement = await screen.findAllByTestId(/follower-item/i);
+    expect(followerDivElement.length).toBe(5)
+  });
 });
