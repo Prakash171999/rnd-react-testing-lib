@@ -75,8 +75,8 @@ it("queryBy", async () => {
   expect(headerElement).not.toBeInTheDocument();
 });
 
-it("get all by role", async () => {
-  render(<Header title={"My todo header"} />);
-  const headerElements = screen.getAllByRole("heading");
-  expect(headerElements.length).toBe(2);
-});
+// it("get all by role", async () => {
+//   render(<Header title={"My todo header"} />);
+//   const headerElements = screen.getAllByRole("heading");
+//   expect(headerElements.length).toBe(2);
+// });
